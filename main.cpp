@@ -14,10 +14,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
 
-    if (QIcon::themeName() == "breeze") {
-        QIcon::setThemeName("breeze-dark");
-    }
-
     Manager manager;
     if (!manager.init()) {
         qWarning() << "Failed to init manager";

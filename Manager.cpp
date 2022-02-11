@@ -102,9 +102,7 @@ quint32 Manager::Notify(const QString &name, const quint32 replacesId, const QSt
 
     Widget *widget = new Widget;
     connect(this, &QObject::destroyed, widget, &QWidget::deleteLater);
-    widget->setAppName(name);
-    widget->setSummary(summary);
-    widget->setBody(body);
+    widget->setAppText(name, summary, body);
     if (!icon.isEmpty()) {
         widget->setAppIcon(icon);
     } else {

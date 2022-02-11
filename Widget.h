@@ -9,14 +9,6 @@ class QLabel;
 class QTextBrowser;
 class QTimer;
 
-class BodyWidget : public QTextBrowser
-{
-    Q_OBJECT
-
-protected:
-    QVariant loadResource(int type, const QUrl &name) override;
-};
-
 class ClickableLabel : public QLabel
 {
     Q_OBJECT
@@ -43,21 +35,16 @@ public:
     Widget();
     ~Widget();
 
-    void setTitle(const QString &title);
-    void setSummary(const QString &summary);
-    void setBody(QString body);
-
     void setNotificationId(const int id) {
         m_appIcon->setNotificationId(id); m_id = id;
         m_appName->setNotificationId(id); m_id = id;
-        m_summary->setNotificationId(id); m_id = id;
     }
     void setDefaultAction(const QString &action);
 
-    void setAppName(const QString &name);
     void setAppIcon(const QString &iconPath);
     void setAppIcon(const QImage &icon);
 
+    void setAppText(const QString &name, const QString &summary, QString body);
     void setTimeout(int timeout);
 
 public slots:
@@ -77,11 +64,9 @@ private slots:
     void onUrlClicked(const QUrl &url);
 
 private:
-    ClickableLabel *m_summary;
     ClickableLabel *m_appIcon;
     ClickableLabel *m_appName;
     QTimer *m_dismissTimer;
-    BodyWidget *m_body;
     int m_id;
     int m_timeLeft = 0;
     int m_index = 0;

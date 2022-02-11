@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>muted.png</file>
-        <file>muted-active.png</file>
         <file>annoying.png</file>
     </qresource>
 </RCC>
