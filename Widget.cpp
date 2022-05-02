@@ -18,7 +18,6 @@ Widget::Widget()
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint | Qt::WindowDoesNotAcceptFocus | Qt::Tool);
-    setAttribute(Qt::WA_TranslucentBackground);
 
     if (s_visibleNotifications > 10) {
         qWarning() << "Too many visible notifications already";
